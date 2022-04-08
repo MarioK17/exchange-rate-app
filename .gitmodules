@@ -1,0 +1,6 @@
+[submodule "backend-exchange-rate"]
+	path = backend-exchange-rate
+	url = git@github.com:MarioK17/backend-exchange-rate
+[submodule "front-exchange-rate"]
+	path = front-exchange-rate
+	url = git@github.com:MarioK17/front-exchange-rate

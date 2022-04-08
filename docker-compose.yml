@@ -1,0 +1,44 @@
+version: '3.5'
+
+services:
+  back:
+    image: 'backend-exchange:latest'
+    build:
+      context: backend-exchange-rate
+    container_name: backend-exchange
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db_bcp
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db_bcp:5432/postgres
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=mysecretpassword
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+    networks:
+      - my-network
+
+  front:
+    image: 'front-exchange:latest'
+    build:
+      context: front-exchange-rate
+    container_name: front-exchange
+    ports:
+      - "4600:80"
+    networks:
+      - my-network
+                
+  db_bcp:
+    image: 'postgres:13.1-alpine'
+    container_name: db-exchange
+    ports:
+      - "54321:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=mysecretpassword
+    networks:
+      - my-network
+            
+networks:
+  my-network:
+    name: network-exchange

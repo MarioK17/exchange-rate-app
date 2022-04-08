@@ -12,4 +12,4 @@ Execute `git clone --recursive` to clone this project and submodules
 docker-compose up -d
 ```
 
-Require docker compose to run frontend backend and database.
+Require docker compose to run frontend backend and database. Application will run on http://localhost:4600

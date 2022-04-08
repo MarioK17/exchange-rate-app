@@ -18,6 +18,13 @@ The application by default creates 2 users and 2 roles, one role for each one.
 | admin | admin | ADMIN
 | user | user | USER
 
+### Admin role
+  
+  Can calculate, create and audit exchange rates.
+  
+### User role
+
+  Can only calculate exchange rates.
 
 # Running application
 
